@@ -1,5 +1,7 @@
 {
   "heroes": {
-    "title" : "Tour des héros"
+    "title" : "Tour des héros",
+    "lang-fr" : "Français",
+    "lang-en" : "English"
   }
 }

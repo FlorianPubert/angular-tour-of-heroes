@@ -13,10 +13,21 @@
             <a routerLink="/heroes" class="nav-link">Heroes</a>
           </li>
         </ul>
-        <button [className]="isCurrentLanguage('fr') ? 'btn btn-outline-primary active mr-2' : 'btn btn-outline-primary mr-2'" (click)="useLanguage('fr')">FR</button>
-        <button [className]="isCurrentLanguage('en') ? 'btn btn-outline-primary active' : 'btn btn-outline-primary'" (click)="useLanguage('en')">EN</button>
+        <div class="dropdown">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown">
+            <img width="32" class="mr-2" src="assets/images/flags/{{currentLang}}.svg" alt="" />{{ "heroes.lang-" + currentLang | translate}}
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation">
+              <a role="menuitem" (click)="useLanguage(getUnusedLanguage())">
+                <img width="32" class="ml-2 mr-2" src="assets/images/flags/{{getUnusedLanguage()}}.svg" alt="" />
+                {{ "heroes.lang-" + getUnusedLanguage() | translate}}
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
-
       <router-outlet></router-outlet>
       <app-messages></app-messages>
     </div>
