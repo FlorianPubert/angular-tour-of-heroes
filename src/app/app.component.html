@@ -1,20 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>{{ title }}</h1>
+      <h1 [innerHTML]="'heroes.title' | translate"></h1>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
 
-      <ul class="nav navbar-dark">
-        <li class="nav-item">
-          <a routerLink="/heroes" class="nav-link">Heroes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-      </ul>
+      <nav class="navbar navbar-dark bg-dark">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a routerLink="/heroes" class="nav-link">Heroes</a>
+          </li>
+        </ul>
+        <button [className]="isCurrentLanguage('fr') ? 'btn btn-outline-primary active mr-2' : 'btn btn-outline-primary mr-2'" (click)="useLanguage('fr')">FR</button>
+        <button [className]="isCurrentLanguage('en') ? 'btn btn-outline-primary active' : 'btn btn-outline-primary'" (click)="useLanguage('en')">EN</button>
+      </nav>
 
       <router-outlet></router-outlet>
       <app-messages></app-messages>
